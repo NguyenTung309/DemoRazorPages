@@ -1,0 +1,16 @@
+﻿@page
+@model DemoRazorPages.Pages.UploadFilesModel
+<form method="post" enctype="multipart/form-data">
+    <label asp-for="@Model.FileUploads"></label>
+    <input asp-for="@Model.FileUploads" />
+    <span asp-validation-for="@Model.FileUploads"></span>
+    <button class="btn btn-primary" asp-page="UploadMulti">Upload</button>
+</form>
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
